@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Files</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='file.css') }}">
+</head>
+<body>
+    <h1>Files for User ID: {{ user_id }}</h1>
+    <ul>
+        {% for file in files %}
+        <li>
+            <strong>{{ file }}</strong>
+            <form action="/edit-file" method="post">
+                <input type="hidden" name="userId" value="{{ user_id }}">
+                <input type="hidden" name="filename" value="{{ file }}">
+                <br>
+                <textarea name="fileContent" rows="10" cols="50">{{ file_contents[file] }}</textarea>
+                <br><br><br><br>
+                <input type="submit" value="Save Changes">
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+    <br><br><br><br>
+    <button onclick="window.location.href='/'">Home</button>
+</body>
+</html>
+

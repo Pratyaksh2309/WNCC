@@ -1,0 +1,25 @@
+<!-- templates/retrieve.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='retrieve.css') }}">
+</head>
+<body>
+    <h1>Login Dashboard</h1>
+    <h2>Enter your userid and get your .py file which you can edit if you want and commit changes.</h2>
+
+    <br /><br /><br /><br />
+
+    <form action="/retrieve-files" method="get">
+        <label for="userId">Enter User ID:</label>
+        <input type="text" id="userId" name="userId" required>
+        <input type="submit" value="Retrieve Files">
+    </form>
+
+    <br /><br /><br /><br />
+    <button onclick="window.location.href='/'">Back to Home</button>
+</body>
+</html>

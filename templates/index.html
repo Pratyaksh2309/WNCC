@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+    <h1>Register</h1>
+
+    <h2>Register yourself with unique userid and save your .py scripts here</h2>
+
+    <br />
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <br /><br /><br /><br />
+
+    <form action="/upload" method="post" enctype="multipart/form-data" class="CT">
+        <label for="userId">Enter User ID:</label>
+        <input type="text" id="userId" name="userId" required>
+        <input type="file" name="file" accept=".py">
+        <input type="submit" value="Upload">
+    </form>
+
+    <br /><br /><br /><br /><br />
+    
+    <div class="box">
+    <a href="{{ url_for('retrieve_page') }}">Retrieve Files</a>
+    <br /><br /><br />
+    <button onclick="window.location.href='/'">Back to Home</button>
+    </div>
+
+</body>
+</html>

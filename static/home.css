@@ -1,0 +1,102 @@
+body {
+    /* background-color: red; Light gray background color */
+    background-image: url('bg.png');/* Specify the path to your background image */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Full viewport height */
+    overflow-y: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+    font-family: Arial, sans-serif;
+}
+.container{
+    font-size: 20px;
+}
+
+.glow_text {
+    color: transparent; /* Transparent text color */
+    font-size: 36px; /* Adjust font size as needed */
+    background-image: linear-gradient(to right, #FFB2BeB5, #FFA500, #FF6347); /* Gradient colors */
+    background-clip: text;
+    background-color: white;
+}
+
+.glow_text:hover {
+    animation: glowAnimation 2s ease-in-out infinite alternate; /* Glow animation on hover */
+}
+
+@keyframes glowAnimation {
+    from {
+        text-shadow: 0 0 10px #FFB2BeB5, 0 0 20px #ff6347cc;
+    }
+    to {
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px #ff6347cc;
+    }
+}
+
+.glow {
+    display:inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 230px 100px 0px 80px;
+    width: 220px;
+    height: 50px;
+    font-size: 30px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.glow:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow:active {
+    color: #000
+}
+
+.glow:active:after {
+    background: transparent;
+}
+
+.glow:hover:before {
+    opacity: 1;
+}
+
+.glow:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}

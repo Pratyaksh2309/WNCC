@@ -1,0 +1,13 @@
+body {
+    background-color: #e8beac;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Full viewport height */
+    overflow-y: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+    font-family: Arial, sans-serif;
+}

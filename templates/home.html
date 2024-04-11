@@ -1,0 +1,24 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeWars Testing Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
+<body>
+    <div class="container">
+    <h1 class="glow_text"> Welcome To CODEWARS TESTING PORTAL</h1>
+    </div>
+    <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> 
+    <div class="button-container">
+        <!-- Button to navigate to upload page -->
+        <button onclick="window.location.href='/upload'" class="glow" type="button">Register</button>
+        <!-- Button to navigate to retrieve page -->
+        <button onclick="window.location.href='/retrieve'" class="glow" type="button">Login</button>
+        <!-- Button to navigate to test page -->
+        <button onclick="window.location.href='/test'" class="glow" type="button">Test</button>
+    </div>
+</body>
+</html>

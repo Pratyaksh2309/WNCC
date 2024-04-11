@@ -1,0 +1,47 @@
+body {
+    background-color: #e8beac;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Full viewport height */
+    overflow-y: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+    display: block;
+}
+
+.box{
+    font-size: 30px;
+}
+
+h1 {
+    font-size: 48px;
+    color: #333; /* Dark text color */
+}
+
+p {
+    font-size: 24px;
+    color: #666; /* Medium gray text color */
+    margin-bottom: 20px; /* Bottom margin for spacing */
+}
+
+button{
+    font-size: 30px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 36px; /* Decrease font size on smaller screens */
+    }
+    p {
+        font-size: 16px; /* Decrease font size on smaller screens */
+    }
+}

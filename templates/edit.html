@@ -1,0 +1,20 @@
+<!-- templates/edit.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit File</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='file.css') }}">
+</head>
+<body>
+    <h1>Edit File: {{ filename }}</h1>
+    <form action="/edit-file" method="post">
+        <input type="hidden" name="userId" value="{{ user_id }}">
+        <input type="hidden" name="filename" value="{{ filename }}">
+        <textarea name="fileContent" rows="10" cols="50">{{ open(os.path.join(app.config['UPLOAD_FOLDER'], user_id, filename)).read() }}</textarea>
+        <br>
+        <input type="submit" value="Save Changes">
+    </form>
+</body>
+</html>

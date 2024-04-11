@@ -1,0 +1,47 @@
+<!-- test.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Script</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='test.css') }}">
+</head>
+<body>
+    <h1>Test Your Script</h1>
+    <h2>Enter your userid to retrieve your file which will be randomly test with other scripts present in database</h2>
+    <br/><br/><br/><br/>
+    <form action="/test" method="post">
+        <label for="userId">Enter User ID:</label>
+        <input type="text" id="userId" name="userId" required>
+        <br/><br/><br/><br/><br/>
+        <input type="submit" value="Test">
+    </form>
+
+    <br/><br/><br/><br/>
+    <div id="testResult"></div>
+    <br/><br/><br/><br/>
+
+    <button onclick="window.location.href='/'">Home</button>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const userId = document.getElementById('userId').value.trim();
+            if (userId) {
+                const response = await fetch('/test', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: `userId=${userId}`
+                });
+                const data = await response.text();
+                document.getElementById('testResult').textContent = data;
+            } else {
+                alert('Please enter a valid User ID.');
+            }
+        });
+    </script>
+</body>
+</html>
